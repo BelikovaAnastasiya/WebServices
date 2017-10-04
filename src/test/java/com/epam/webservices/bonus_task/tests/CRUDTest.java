@@ -9,6 +9,7 @@ public class CRUDTest extends AuthenticationStep {
 
     private String workingGist;
     private String id = "ffb3630313f105e57645f9c647d233f6";
+    private String id2 = "26afcc73fbea784794518c1e82b39f87";
 
     @Test( description = "Create new gist")
     public void createGistTest()
@@ -23,25 +24,23 @@ public class CRUDTest extends AuthenticationStep {
 
     @Test(description = "Get gist")
     public void getGistTest() {
-        Response response = getGivenWithAuthentication().get("/" + id).andReturn();
+        Response response = getGivenWithAuthentication().get("/" + id2).andReturn();
         Gist getGist = response.as(Gist.class);
         System.out.println(getGist);
         Assert.assertEquals(response.statusCode(), 200);
-       // Assert.assertTrue(gist.getUser().contains("Pavlik_Morozov"));
     }
 
-    @Test( dependsOnMethods = "createGistTest", description = "Change count comments in the gist")
+    @Test(description = "Change count comments in the gist")
     public void updateCountCommentsInTheGistTest() {
         Gist gist = new Gist("new Gist");
         int oldCountComments = gist.getComments();
         int newCountComments = 1000;
-        int finalCountCommentsl;
-
+        int finalCountComments;
         gist.setComments(newCountComments);
-        Response response = getGivenWithAuthentication().body(gist).with().contentType("application/json").patch("/" + id).andReturn();
-        finalCountCommentsl = response.as(Gist.class).getComments();
+        Response response = getGivenWithAuthentication().body(gist).with().contentType("application/json").patch("/" + id2).andReturn();
+        finalCountComments = response.as(Gist.class).getComments();
         Assert.assertEquals(response.statusCode(), 200);
-        Assert.assertNotEquals(finalCountCommentsl, oldCountComments);
+        Assert.assertNotEquals(finalCountComments, oldCountComments);
     }
 
     @Test(description = "Delete gist")
@@ -53,7 +52,7 @@ public class CRUDTest extends AuthenticationStep {
     @Test (description = "Star a gist")
     public void  starGistTest()
     {
-        Response response = getGivenWithAuthentication().put("/" + id + "/star" ).andReturn();
+        Response response = getGivenWithAuthentication().put("/" + workingGist + "/star" ).andReturn();
         Assert.assertEquals(response.statusCode(), 204);
     }
 

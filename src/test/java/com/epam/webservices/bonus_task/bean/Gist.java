@@ -1,7 +1,5 @@
 package com.epam.webservices.bonus_task.bean;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,10 +10,7 @@ public class Gist implements Serializable{
     private String commitsUrl;
     private String id;
     private String description;
-
-    @SerializedName("public")
     private boolean isPublic;
-
     private UserGist owner;
     private String user;
     private boolean truncated;
@@ -34,7 +29,7 @@ public class Gist implements Serializable{
         this.commitsUrl = "Some URL4...";
         this.id = "";
         this.description = "Some description...";
-        isPublic = true;
+        this.isPublic = true;
         this.owner = new UserGist();
         this.user = "Pavlik_Morozov";
         this.truncated = false;

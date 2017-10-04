@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class AuthenticationStep {
 
-    private final String token = "48bcac7a80cda2daec6fb01825c58f69f7913b60";
+    private final String token = "67b3d6c78187b4a8cb36eb8941fdcffe7680dc7d";
     private final String baseUrl = "https://api.github.com/gists";
     private final RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri(baseUrl).build();
 
