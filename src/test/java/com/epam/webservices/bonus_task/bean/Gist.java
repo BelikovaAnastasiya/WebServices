@@ -2,6 +2,8 @@ package com.epam.webservices.bonus_task.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Gist implements Serializable{
 
@@ -21,25 +23,7 @@ public class Gist implements Serializable{
     private String gitPushUrl;
     private Date createdAt;
     private Date updatedAt;
-
-    public Gist(String newGist) {
-        this.url = "Some URL...";
-        this.forksUrl = "Some URL2...";
-        this.commitsUrl = "Some URL3...";
-        this.commitsUrl = "Some URL4...";
-        this.id = "";
-        this.description = "Some description...";
-        this.isPublic = true;
-        this.owner = new UserGist();
-        this.user = "Pavlik_Morozov";
-        this.truncated = false;
-        this.comments = 666;
-        this.htmlUrl = "Some URL5...";
-        this.gitPullUrl = "Some URL6...";
-        this.gitPushUrl = "Some URL7...";
-        this.createdAt =  new Date();
-        this.updatedAt = new Date();
-        }
+    private Map<String, File> files;
 
     public String getUrl() {
         return url;
@@ -169,6 +153,20 @@ public class Gist implements Serializable{
         this.updatedAt = updatedAt;
     }
 
+    public Map<String, File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(Map<String, File> files) {
+        this.files = files;
+    }
+
+    public void setFile(String name, File file) {
+        Map<String, File> files = new HashMap<String, File>();
+        files.put(name, file);
+        setFiles(files);
+    }
+
     @Override
     public String toString() {
         return "Gist{" +
@@ -188,6 +186,7 @@ public class Gist implements Serializable{
                 ", gitPushUrl='" + gitPushUrl + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", files=" + files +
                 '}';
     }
 }

@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class ApacheHttpClientTest {
 
-    @Test
+    @Test (description = "Check status code")
     public void verifyHttpStatusCode() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://jsonplaceholder.typicode.com/users");
@@ -29,7 +29,7 @@ public class ApacheHttpClientTest {
         }
     }
 
-    @Test
+    @Test(description = "Check http response header")
     public void verifyHttpResponseHeader() throws IOException {
             CloseableHttpClient httpclient = HttpClients.createDefault();
             HttpGet httpGet = new HttpGet("http://jsonplaceholder.typicode.com/users");
@@ -49,7 +49,7 @@ public class ApacheHttpClientTest {
             }
     }
 
-    @Test
+    @Test(description = "Check http response body")
     public void verifyHttpResponseBody() throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://jsonplaceholder.typicode.com/users");

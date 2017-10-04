@@ -22,26 +22,6 @@ public class UserGist implements Serializable {
     private String type;
     private boolean siteAdmin;
 
-    public UserGist() {
-        this.login = "Pavlik_Morozov";
-        this.id = 12;
-        this.avatarUrl = "Some URL";
-        this.gravatarId = "Some ID";
-        this.url = "Some URL2";
-        this.htmlUrl = "Some URL3";
-        this.followersUrl = "Some URL4";
-        this.followingUrl = "Some URL5";
-        this.gistsUrl = "Some URL6";
-        this.starredUrl = "Some URL7";
-        this.subscriptionsUrl = "Some URL8";
-        this.organizationsUrl = "Some URL9";
-        this.reposUrl = "Some URL10";
-        this.eventsUrl = "Some URL11";
-        this.receivedEventsUrl = "Some URL12";
-        this.type = "Some type";
-        this.siteAdmin = false;
-    }
-
     public String getLogin() {
         return login;
     }
